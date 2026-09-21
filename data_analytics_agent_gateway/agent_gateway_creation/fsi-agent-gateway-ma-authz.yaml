@@ -1,0 +1,11 @@
+name: fsi-agent-gateway-ma-authz
+service: modelarmor.us-central1.rep.googleapis.com
+failOpen: true
+timeout: 1s
+metadata:
+  model_armor_settings: '[
+    {
+      "request_template_id": "projects/fsi-labs-509219/locations/us-central1/templates/agw-request-template",
+      "response_template_id": "projects/fsi-labs-509219/locations/us-central1/templates/agw-response-template"
+    }
+  ]'

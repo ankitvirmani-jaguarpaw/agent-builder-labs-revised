@@ -1,0 +1,6 @@
+name: fsi-agent-gateway-egress-svc-ext-authz-iap-enforced
+service: iap.googleapis.com
+failOpen: false
+timeout: 1s
+metadata:
+  iapPolicyVersion: "V1"

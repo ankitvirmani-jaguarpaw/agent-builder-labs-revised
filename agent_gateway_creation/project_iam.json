@@ -1,0 +1,268 @@
+{
+  "bindings": [
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-agentgateway.iam.gserviceaccount.com"
+      ],
+      "role": "roles/agentgateway.serviceAgent"
+    },
+    {
+      "members": [
+        "principalSet://agents.global.org-788308946018.system.id.goog/attribute.platformContainer/aiplatform/projects/867402506099"
+      ],
+      "role": "roles/aiplatform.agentDefaultAccess"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform-re.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.reasoningEngineServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:867402506099-compute@developer.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.user"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-artifactregistry.iam.gserviceaccount.com"
+      ],
+      "role": "roles/artifactregistry.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:867402506099-compute@developer.gserviceaccount.com"
+      ],
+      "role": "roles/artifactregistry.writer"
+    },
+    {
+      "members": [
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/1404599166448959488",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/1741806188548325376",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4238207756995133440",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4499979485336043520",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/5608709418599317504",
+        "serviceAccount:867402506099-compute@developer.gserviceaccount.com",
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform-re.iam.gserviceaccount.com",
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform.iam.gserviceaccount.com",
+        "user:agyankit@gmail.com"
+      ],
+      "role": "roles/bigquery.dataViewer"
+    },
+    {
+      "members": [
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/1404599166448959488",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/1741806188548325376",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4238207756995133440",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4499979485336043520",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/5608709418599317504",
+        "serviceAccount:867402506099-compute@developer.gserviceaccount.com",
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform-re.iam.gserviceaccount.com",
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform.iam.gserviceaccount.com",
+        "user:agyankit@gmail.com"
+      ],
+      "role": "roles/bigquery.jobUser"
+    },
+    {
+      "members": [
+        "serviceAccount:867402506099@cloudbuild.gserviceaccount.com"
+      ],
+      "role": "roles/cloudbuild.builds.builder"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudbuild.serviceAgent"
+    },
+    {
+      "members": [
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4238207756995133440",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4499979485336043520",
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudtrace.agent"
+    },
+    {
+      "members": [
+        "serviceAccount:867402506099@cloudservices.gserviceaccount.com"
+      ],
+      "role": "roles/compute.instanceGroupManagerServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@compute-system.iam.gserviceaccount.com"
+      ],
+      "role": "roles/compute.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@containerregistry.iam.gserviceaccount.com"
+      ],
+      "role": "roles/containerregistry.ServiceAgent"
+    },
+    {
+      "members": [
+        "user:agyankit@gmail.com"
+      ],
+      "role": "roles/dataplex.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:867402506099-compute@developer.gserviceaccount.com"
+      ],
+      "role": "roles/dataplex.catalogEditor"
+    },
+    {
+      "members": [
+        "serviceAccount:867402506099-compute@developer.gserviceaccount.com"
+      ],
+      "role": "roles/dataplex.catalogViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-dataplex.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dataplex.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:867402506099-compute@developer.gserviceaccount.com",
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform-re.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dataplex.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-discoveryengine.iam.gserviceaccount.com"
+      ],
+      "role": "roles/discoveryengine.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@dlp-api.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dlp.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-modelarmor.iam.gserviceaccount.com"
+      ],
+      "role": "roles/dlp.user"
+    },
+    {
+      "members": [
+        "user:agyankit@gmail.com"
+      ],
+      "role": "roles/iam.serviceAccountUser"
+    },
+    {
+      "members": [
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4238207756995133440",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4499979485336043520",
+        "serviceAccount:867402506099-compute@developer.gserviceaccount.com",
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform.iam.gserviceaccount.com"
+      ],
+      "role": "roles/logging.logWriter"
+    },
+    {
+      "members": [
+        "serviceAccount:service-732287735589@gcp-sa-dep.iam.gserviceaccount.com",
+        "serviceAccount:service-867402506099@gcp-sa-dep.iam.gserviceaccount.com"
+      ],
+      "role": "roles/modelarmor.calloutUser"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-modelarmor.iam.gserviceaccount.com"
+      ],
+      "role": "roles/modelarmor.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-732287735589@gcp-sa-dep.iam.gserviceaccount.com",
+        "serviceAccount:service-867402506099@gcp-sa-dep.iam.gserviceaccount.com"
+      ],
+      "role": "roles/modelarmor.user"
+    },
+    {
+      "members": [
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4238207756995133440",
+        "principal://agents.global.org-788308946018.system.id.goog/resources/aiplatform/projects/867402506099/locations/us-central1/reasoningEngines/4499979485336043520",
+        "serviceAccount:service-867402506099@gcp-sa-aiplatform.iam.gserviceaccount.com"
+      ],
+      "role": "roles/monitoring.metricWriter"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-networkactions.iam.gserviceaccount.com"
+      ],
+      "role": "roles/networkactions.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-ns-authz.iam.gserviceaccount.com"
+      ],
+      "role": "roles/networksecurity.authzServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-notebooks.iam.gserviceaccount.com"
+      ],
+      "role": "roles/notebooks.serviceAgent"
+    },
+    {
+      "members": [
+        "user:agyankit@gmail.com"
+      ],
+      "role": "roles/owner"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-pubsub.iam.gserviceaccount.com"
+      ],
+      "role": "roles/pubsub.serviceAgent"
+    },
+    {
+      "members": [
+        "user:agyankit@gmail.com"
+      ],
+      "role": "roles/run.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@serverless-robot-prod.iam.gserviceaccount.com"
+      ],
+      "role": "roles/run.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-867402506099@gcp-sa-dep.iam.gserviceaccount.com"
+      ],
+      "role": "roles/serviceextensions.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-732287735589@gcp-sa-dep.iam.gserviceaccount.com",
+        "serviceAccount:service-867402506099@gcp-sa-dep.iam.gserviceaccount.com",
+        "user:agyankit@gmail.com"
+      ],
+      "role": "roles/serviceusage.serviceUsageConsumer"
+    },
+    {
+      "members": [
+        "serviceAccount:867402506099-compute@developer.gserviceaccount.com"
+      ],
+      "role": "roles/storage.admin"
+    }
+  ],
+  "etag": "BwZb_LHhF5M=",
+  "version": 1
+}

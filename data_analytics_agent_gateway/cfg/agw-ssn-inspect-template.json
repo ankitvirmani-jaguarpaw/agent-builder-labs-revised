@@ -1,0 +1,10 @@
+{
+  "inspectConfig": {
+    "infoTypes": [
+      {
+        "name": "US_SOCIAL_SECURITY_NUMBER"
+      }
+    ],
+    "minLikelihood": "POSSIBLE"
+  }
+}

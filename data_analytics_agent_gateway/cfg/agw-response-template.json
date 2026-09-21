@@ -1,0 +1,10 @@
+{
+  "filterConfig": {
+    "sdpSettings": {
+      "advancedConfig": {
+        "inspectTemplate": "projects/${PROJECT_ID}/locations/${REGION}/inspectTemplates/agw-ssn-inspect-template",
+        "deidentifyTemplate": "projects/${PROJECT_ID}/locations/${REGION}/deidentifyTemplates/agw-ssn-redaction-template"
+      }
+    }
+  }
+}

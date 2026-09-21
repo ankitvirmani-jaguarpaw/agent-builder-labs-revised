@@ -19,15 +19,15 @@ echo "Project ID: ${PROJECT_ID}"
 echo "User Email: ${USER_EMAIL}"
 
 echo -e "\n=== 2. Enabling Required GCP APIs ==="
-# CHANGED: Added dataplex.googleapis.com
 gcloud services enable \
+    serviceusage.googleapis.com \
     dataplex.googleapis.com \
     datacatalog.googleapis.com \
     bigquery.googleapis.com
 
 echo -e "\n=== 3. Binding Required IAM Roles ==="
-# CHANGED: Replaced roles/datacatalog.admin with roles/dataplex.admin
 ROLES=(
+    "roles/serviceusage.serviceUsageConsumer"
     "roles/dataplex.admin"
     "roles/bigquery.dataViewer"
     "roles/bigquery.jobUser"
@@ -42,7 +42,6 @@ for role in "${ROLES[@]}"; do
 done
 
 echo -e "\n=== 4. Installing Python Client Libraries ==="
-# CHANGED: Replaced google-cloud-datacatalog with google-cloud-dataplex
 pip install --upgrade google-cloud-bigquery google-cloud-dataplex
 
 echo -e "\n[✓] Prerequisites setup completed successfully!"

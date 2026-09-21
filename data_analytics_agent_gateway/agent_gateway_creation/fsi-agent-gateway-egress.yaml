@@ -1,0 +1,8 @@
+name: fsi-agent-gateway-egress
+googleManaged:
+  governedAccessPath: AGENT_TO_ANYWHERE
+protocols:
+  - MCP
+  - PROTOCOL_UNSPECIFIED
+registries:
+  - "//agentregistry.googleapis.com/projects/fsi-labs-509219/locations/us-central1"

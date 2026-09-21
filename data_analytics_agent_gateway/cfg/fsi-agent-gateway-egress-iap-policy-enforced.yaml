@@ -1,0 +1,10 @@
+name: projects/fsi-labs-509219/locations/us-central1/authzPolicies/fsi-agent-gateway-egress-iap-policy
+action: CUSTOM
+policyProfile: REQUEST_AUTHZ
+target:
+  resources:
+    - projects/867402506099/locations/us-central1/agentGateways/fsi-agent-gateway-egress
+customProvider:
+  authzExtension:
+    resources:
+      - projects/867402506099/locations/us-central1/authzExtensions/fsi-agent-gateway-egress-svc-ext-authz-iap-enforced

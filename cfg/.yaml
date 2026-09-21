@@ -1,8 +1,0 @@
-name: 
-protocols:
-  - MCP
-  - A2A
-googleManaged:
-  governedAccessPath: AGENT_TO_ANYWHERE
-registries:
-  - "//agentregistry.googleapis.com/projects//locations/"

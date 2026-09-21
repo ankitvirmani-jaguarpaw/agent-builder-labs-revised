@@ -1,0 +1,13 @@
+{
+  "deidentifyConfig": {
+    "infoTypeTransformations": {
+      "transformations": [
+        {
+          "primitiveTransformation": {
+            "replaceWithInfoTypeConfig": {}
+          }
+        }
+      ]
+    }
+  }
+}

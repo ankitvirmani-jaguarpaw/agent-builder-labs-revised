@@ -1,0 +1,8 @@
+{
+  "identity_type": "AGENT_IDENTITY",
+  "agent_gateway_config": {
+    "agent_to_anywhere_config": {
+      "agent_gateway": "projects/fsi-labs-509219/locations/us-central1/agentGateways/fsi-agent-gateway-egress"
+    }
+  }
+}

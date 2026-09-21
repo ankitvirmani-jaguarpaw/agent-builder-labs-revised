@@ -1,0 +1,16 @@
+{
+  "name": "projects/${PROJECT_ID}/locations/${REGION}/authzPolicies/fsi-agent-gateway-egress-iap-policy",
+  "action": "CUSTOM",
+  "target": {
+    "resources": [
+      "projects/${PROJECT_ID}/locations/${REGION}/agentGateways/fsi-agent-gateway-egress"
+    ]
+  },
+  "customProvider": {
+    "authzExtension": {
+      "resources": [
+        "projects/${PROJECT_ID}/locations/${REGION}/authzExtensions/fsi-agent-gateway-egress-svc-ext-authz-iap-dryrun"
+      ]
+    }
+  }
+}
