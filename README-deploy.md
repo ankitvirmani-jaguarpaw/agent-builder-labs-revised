@@ -21,6 +21,7 @@ Completed from the build stage:
 cd ..
 cd judge-agent
 gcloud services enable aiplatform.googleapis.com
+gcloud services enable agentregistry.googleapis.com
 
 chmod +x deploy-judge-agent-cloud-run.sh
 ./deploy-judge-agent-cloud-run.sh
