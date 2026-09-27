@@ -164,6 +164,10 @@ GOOGLE_CLOUD_PROJECT=${PROJECT_ID}
 GOOGLE_CLOUD_LOCATION=${REGION}
 CATALOG_MCP_URL=${CATALOG_BASE_URL}/sse
 JUDGE_AGENT_URL=${JUDGE_BASE_URL}
+# 1. ADK's native span content capture (populates gcp.vertex.agent.llm_request & llm_response)
+ADK_CAPTURE_MESSAGE_CONTENT_IN_SPANS=true
+# 2. OpenTelemetry GenAI content capture (populates gen_ai.prompt & gen_ai.completion)
+OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true
 EOF
 
 echo "Generated .env contents:"
