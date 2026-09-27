@@ -19,7 +19,7 @@ Completed from the build stage:
 
 ```bash
 cd ..
-cd judge_agent
+cd judge-agent
 
 chmod +x deploy-judge-agent-cloud-run.sh
 ./deploy-judge-agent-cloud-run.sh
