@@ -339,6 +339,8 @@ Open your agent in the Agent Engine console and choose **Playground**:
 
 - "Using the google analytics catalog entry, what is the bounce rate for last week?"
 - "Show me the top traffic sources from the Google Analytics sample dataset."
+- "can you remember my favorite metric is bounce rate"?
+
 
 What happens, given the system prompt rules:
 
