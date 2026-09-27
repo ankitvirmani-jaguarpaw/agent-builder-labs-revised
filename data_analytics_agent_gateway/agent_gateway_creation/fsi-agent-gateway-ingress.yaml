@@ -1,6 +1,0 @@
-name: fsi-agent-gateway-ingress
-googleManaged:
-  governedAccessPath: CLIENT_TO_AGENT
-protocols:
-  - MCP
-  - PROTOCOL_UNSPECIFIED
