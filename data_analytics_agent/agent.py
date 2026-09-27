@@ -1,9 +1,10 @@
-"""worker_agent.py
+"""agent.py
 
 Data Analytics Worker Agent with strict Tokenomics Governance:
 - Consults Knowledge Catalog MCP Server first.
 - Strict Circuit Breaker: Does NOT hit BigQuery if the question can be resolved
   via metadata, metric definitions, or canonical formulas.
+- Answers conceptual and schema questions directly using catalog definitions.
 - Only hits BigQuery when concrete row-level data or live metrics are requested.
 - Dynamically integrates Remote Judge Agent over A2A when JUDGE_AGENT_URL is provided.
 """
@@ -13,15 +14,17 @@ from __future__ import annotations
 import json
 import logging
 import os
+from typing import Any
+
 import google.auth
 from fastmcp import Client
 
 from google.adk.agents import LlmAgent
 from google.adk.agents.callback_context import CallbackContext
+from google.adk.agents.remote_a2a_agent import RemoteA2aAgent
 from google.adk.apps import App
 from google.adk.tools.bigquery import BigQueryCredentialsConfig, BigQueryToolset
 from google.adk.tools.preload_memory_tool import PreloadMemoryTool
-from google.adk.agents.remote_a2a_agent import RemoteA2aAgent
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -137,22 +140,30 @@ CRITICAL OPERATIONAL SEQUENCE:
 
 1. MANDATORY CATALOG DISCOVERY (Step 1 - STRICT):
    - You are STRICTLY FORBIDDEN from invoking any BigQuery tools (including listing datasets/tables or running SQL) without FIRST calling `query_knowledge_catalog`.
-   - If the user asks general questions like "What datasets are available?" or asks about schemas/metrics:
-     --> Call `query_knowledge_catalog(search_query="available datasets")`.
-     --> Do NOT call BigQuery `list_datasets`.
+   - If the user asks general questions like "What datasets are available?" or asks about schemas/metrics/business formulas:
+     --> Call `query_knowledge_catalog`.
+     --> Do NOT call BigQuery tools.
+     --> Synthesize and output the full answer directly to the user (e.g., extract the business formula, canonical SQL, or partition rules). Never output an empty response.
 
 2. BIGQUERY EXECUTION (Step 2):
    - Only query BigQuery when live rows or values are requested that cannot be answered by the catalog.
-   -Strictly honor the user's requested timeframe. If a multi-day range like "last week" is requested:
+   - Strictly honor the user's requested timeframe. If a multi-day range like "last week" is requested:
      * Never hardcode a single date (`_TABLE_SUFFIX = 'YYYYMMDD'`).
      * Use `BETWEEN` with proper start and end dates (e.g., `_TABLE_SUFFIX BETWEEN '20170725' AND '20170801'`).
    - Only execute BigQuery queries after verifying required partition constraints.
    - Use `{PROJECT_ID}` as the billing project."""
 
-# Append Step 3 only when the judge is actively attached
 if HAS_ACTIVE_JUDGE:
-    base_instructions += """\n\n3. MANDATORY A2A JUDGE REVIEW (Step 3):
-   - Transfer to `judge_agent` before returning analytical answers to the user."""
+    base_instructions += """\n\n3. CONDITIONAL A2A JUDGE REVIEW (Step 3):
+   - Only transfer to `judge_agent` when evaluating live SQL query execution and BigQuery result accuracy.
+   - DO NOT transfer to `judge_agent` for conceptual questions, formulas, definitions, or schema lookups; answer those directly.
+   
+MEMORY & PERSONALIZATION:
+- You have an active long-term memory (Memory Bank).
+- Always remember and acknowledge user preferences, favorite metrics, preferred dimensions, or constraints across sessions.
+- If a user asks you to remember a preference or favorite metric, confirm that you have saved it and will apply it in future queries.
+   
+   """
 
 TOKENOMICS_GOVERNANCE_INSTRUCTION = base_instructions
 
@@ -170,15 +181,16 @@ if HAS_ACTIVE_JUDGE:
     )
     sub_agents.append(judge_proxy)
 
+# Attach tools; only preload memory if running inside an active Agent Engine environment
+active_tools: list[Any] = [query_knowledge_catalog, bq_toolset]
+if agent_engine_id:
+    active_tools.append(PreloadMemoryTool())
+
 root_agent = LlmAgent(
     name="data_analytics_worker_agent",
     model="gemini-2.5-pro",
     instruction=TOKENOMICS_GOVERNANCE_INSTRUCTION,
-    tools=[
-        query_knowledge_catalog,
-        bq_toolset,
-        PreloadMemoryTool(),
-    ],
+    tools=active_tools,
     sub_agents=sub_agents,
     after_agent_callback=_save_memory,
 )
