@@ -1,0 +1,27 @@
+[
+  {
+    "prompt": "What is our business formula for bounce rate?",
+    "reference": "Our business formula for bounce rate is the percentage of visitors who enter the site and bounce without further actions. The formula is COUNTIF(totals.bounces = 1) / COUNT(totals.visits) or canonical SQL SUM(IFNULL(totals.bounces, 0)) / COUNT(totals.visits).",
+    "reference_trajectory": ["query_knowledge_catalog"]
+  },
+  {
+    "prompt": "What are the partition rules for ga_sessions?",
+    "reference": "The ga_sessions table is partitioned by day using the _TABLE_SUFFIX field in the format YYYYMMDD. Always filter on _TABLE_SUFFIX to avoid costly full-table scans.",
+    "reference_trajectory": ["query_knowledge_catalog"]
+  },
+  {
+    "prompt": "Find the top 3 traffic sources in ga_sessions for August 1, 2017.",
+    "reference": "Top 3 traffic sources on August 1, 2017 from ga_sessions queried with _TABLE_SUFFIX = '20170801' and reviewed by the remote judge agent.",
+    "reference_trajectory": ["query_knowledge_catalog", "invoke_judge_agent"]
+  },
+  {
+    "prompt": "Give me all data from ga_sessions without any date filters.",
+    "reference": "Directs the user to partition specifications and refuses or warns against unpartitioned full-table scans, consulting the catalog for partition rules.",
+    "reference_trajectory": ["query_knowledge_catalog"]
+  },
+  {
+    "prompt": "How do we define total transactions in our ga_sessions dataset?",
+    "reference": "Total transactions in ga_sessions are defined by totals.transactions retrieved from the Knowledge Catalog.",
+    "reference_trajectory": ["query_knowledge_catalog"]
+  }
+]
