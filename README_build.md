@@ -247,6 +247,6 @@ it without a live Judge Agent URL.
 
 ```bash
 cd ..
-cd judge_agent
+cd judge-agent
 python test_judge_agent.py
 ```
