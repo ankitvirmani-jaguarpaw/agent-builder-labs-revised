@@ -30,11 +30,15 @@
 
 set -e
 
-PROJECT_ID="${GOOGLE_CLOUD_PROJECT:-fsi-labs-509219}"
-PROJECT_NUM="867402506099"
+export PROJECT_ID="${PROJECT_ID:-$(gcloud config get-value project 2>/dev/null)}"
+export PROJECT_NUM="${PROJECT_NUM:-$(gcloud projects describe "${PROJECT_ID}" --format="value(projectNumber)")}"
 REGION="${GOOGLE_CLOUD_LOCATION:-us-central1}"
-ORG_ID="788308946018"
-RE_ID="4238207756995133440"
+export ORG_ID=$(gcloud projects get-ancestors "${PROJECT_ID}" --format="value(id,type)" | awk '$2=="organization" {print $1}')
+echo "ORG_ID: ${ORG_ID}"
+RE_ID=$(curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  "https://${REGION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${REGION}/reasoningEngines" \
+  | jq -r '.reasoningEngines[]? | select(.displayName=="data_analytics_agent_gateway") | .name' | awk -F/ '{print $NF}')
+echo "RE_ID: $RE_ID"
 RE_URL="https://${REGION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_NUM}/locations/${REGION}/reasoningEngines/${RE_ID}"
 TARGET_PRINCIPAL="principal://agents.global.org-${ORG_ID}.system.id.goog/resources/aiplatform/projects/${PROJECT_NUM}/locations/${REGION}/reasoningEngines/${RE_ID}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
