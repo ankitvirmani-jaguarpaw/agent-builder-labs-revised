@@ -13,14 +13,18 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ID="${GOOGLE_CLOUD_PROJECT:-fsi-labs-509219}"
+export PROJECT_ID="${PROJECT_ID:-$(gcloud config get-value project 2>/dev/null)}"
 REGION="${GOOGLE_CLOUD_LOCATION:-us-central1}"
-RE_RESOURCE_NAME="${1:-${REASONING_ENGINE_RESOURCE:-projects/867402506099/locations/us-central1/reasoningEngines/4238207756995133440}}"
+RE_RESOURCE_NAME=$(curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  "https://${REGION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${REGION}/reasoningEngines" \
+  | jq -r '.reasoningEngines[]? | select(.displayName=="data_analytics_agent_gateway") | .name')
 
+# 3. Clean protocol prefixes if present (fallback)
 if [[ "${RE_RESOURCE_NAME}" =~ ^//aiplatform.googleapis.com/ ]]; then
   RE_RESOURCE_NAME="${RE_RESOURCE_NAME#//aiplatform.googleapis.com/}"
 fi
 
+# 4. Construct the v1beta1 API endpoint
 RE_URL="https://${REGION}-aiplatform.googleapis.com/v1beta1/${RE_RESOURCE_NAME}"
 
 echo "==================================================================="
