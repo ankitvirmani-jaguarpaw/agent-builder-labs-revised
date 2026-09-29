@@ -13,8 +13,6 @@ set -e
 
 export PROJECT_ID="${PROJECT_ID:-$(gcloud config get-value project 2>/dev/null)}"
 REGION="${GOOGLE_CLOUD_LOCATION:-us-central1}"
-export PROJECT_NUM="${PROJECT_NUM:-$(gcloud projects describe "${PROJECT_ID}" --format="value(projectNumber)")}"
-REGION="${GOOGLE_CLOUD_LOCATION:-us-central1}"
 export ORG_ID=$(gcloud projects get-ancestors "${PROJECT_ID}" --format="value(id,type)" | awk '$2=="organization" {print $1}')
 echo "ORG_ID: ${ORG_ID}"
 RE_ID=$(curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" \
