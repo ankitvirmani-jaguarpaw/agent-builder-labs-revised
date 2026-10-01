@@ -151,12 +151,12 @@ export PROJECT_NUM=$(gcloud projects describe "$PROJECT_ID" --format="value(proj
 ```bash
 CATALOG_BASE_URL=$(gcloud run services describe knowledge-catalog-mcp \
    --project="${PROJECT_ID}" \
-   --region="${REGION}" \
+   --region="us-central1" \
    --format='value(status.url)')
 
 JUDGE_BASE_URL=$(gcloud run services describe judge-agent \
    --project="${PROJECT_ID}" \
-   --region="${REGION}" \
+   --region="us-central1" \
    --format='value(status.url)')
 
 cat <<EOF > data_analytics_agent/.env
