@@ -138,7 +138,7 @@ Focus on how the Worker Agent calls the Judge Agent over A2A.
 
 ```bash
 export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value project)
-export GOOGLE_CLOUD_LOCATION="us-central1"
+export GOOGLE_CLOUD_LOCATION="global"
 export GOOGLE_GENAI_USE_VERTEXAI="true"
 
 export PROJECT_ID="${GOOGLE_CLOUD_PROJECT}"
