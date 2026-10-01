@@ -198,7 +198,7 @@ gcloud projects add-iam-policy-binding "$PROJECT_ID" \
 ```bash
 adk deploy agent_engine \
  --project="${GOOGLE_CLOUD_PROJECT}" \
- --region="${GOOGLE_CLOUD_LOCATION}" \
+ --region="us-central1" \
  --display_name="data_analytics_nogateway_nopsc" \
  --otel_to_cloud \
  data_analytics_agent
