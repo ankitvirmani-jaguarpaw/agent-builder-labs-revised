@@ -344,7 +344,7 @@ if agent_engine_id:
 
 root_agent = LlmAgent(
     name="data_analytics_worker_agent",
-    model="gemini-3.5-flash-lite",
+    model=f"projects/{PROJECT_ID}/locations/global/publishers/google/models/gemini-3.5-flash-lite",
     instruction=TOKENOMICS_GOVERNANCE_INSTRUCTION,
     tools=active_tools,
     sub_agents=sub_agents,
