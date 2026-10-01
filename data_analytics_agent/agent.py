@@ -58,7 +58,7 @@ if not PROJECT_ID:
   )
 
 # 2. Location & Model Backend
-LOCATION = os.getenv("GOOGLE_CLOUD_LOCATION", "global")
+LOCATION = os.getenv("GOOGLE_CLOUD_LOCATION", "us-central1")
 os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "true"
 os.environ["GOOGLE_CLOUD_PROJECT"] = PROJECT_ID
 os.environ["GOOGLE_CLOUD_LOCATION"] = LOCATION
@@ -344,7 +344,7 @@ if agent_engine_id:
 
 root_agent = LlmAgent(
     name="data_analytics_worker_agent",
-    model=f"projects/{PROJECT_ID}/locations/global/publishers/google/models/gemini-3.5-flash-lite",
+    model="gemini-2.5-pro",
     instruction=TOKENOMICS_GOVERNANCE_INSTRUCTION,
     tools=active_tools,
     sub_agents=sub_agents,
