@@ -10,7 +10,7 @@ from google.adk.agents import LlmAgent
 
 # Ensure Vertex AI backend is used
 os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "true"
-os.environ.setdefault("GOOGLE_CLOUD_LOCATION", "us-central1")
+os.environ.setdefault("GOOGLE_CLOUD_LOCATION", "global")
 
 JUDGE_INSTRUCTION = """You are an expert Data Quality & SQL Governance Judge Agent.
 Your responsibility is to evaluate analytical responses, SQL queries, and findings submitted by the Worker Agent.
