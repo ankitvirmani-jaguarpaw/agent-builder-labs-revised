@@ -43,6 +43,6 @@ You MUST respond with valid, parseable JSON matching this exact structure:
 
 judge_agent = LlmAgent(
     name="judge_agent",
-    model="gemini-3.5-flash",
+    model="gemini-2.5-pro",
     instruction=JUDGE_INSTRUCTION,
 )
