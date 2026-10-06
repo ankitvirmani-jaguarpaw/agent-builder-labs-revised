@@ -109,8 +109,6 @@ retrieved from Dataplex.
 
 ```bash
 gcloud auth login
-
-cd create-knowledge-catalog-mcp-server/
 chmod +x deployment-instructions.sh
 ./deployment-instructions.sh
 
