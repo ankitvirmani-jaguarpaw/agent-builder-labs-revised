@@ -112,7 +112,8 @@ export JUDGE_AGENT_URL="$(gcloud run services describe judge-agent \
   --region us-central1 --format 'value(status.url)')"
 export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value project)
 export GOOGLE_GENAI_USE_VERTEXAI="true"
-export GOOGLE_CLOUD_LOCATION="us-central1"
+export GOOGLE_CLOUD_LOCATION="us"
+export MODEL_NAME="gemini-3.8-flash"
 export CATALOG_MCP_URL="$(gcloud run services describe knowledge-catalog-mcp \
   --region us-central1 --format='value(status.url)')/sse"
 
