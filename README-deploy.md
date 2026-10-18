@@ -139,11 +139,16 @@ Focus on how the Worker Agent calls the Judge Agent over A2A.
 
 ```bash
 export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value project)
-export GOOGLE_CLOUD_LOCATION="us-central1"
 export GOOGLE_GENAI_USE_VERTEXAI="true"
 
+# Compute region for Agent Engine deployment
+export REGION="us-central1"
+
+# Model inference location & model name for Gemini 3.8 Flash
+export GOOGLE_CLOUD_LOCATION="us"
+export MODEL_NAME="gemini-3.8-flash"
+
 export PROJECT_ID="${GOOGLE_CLOUD_PROJECT}"
-export REGION="${GOOGLE_CLOUD_LOCATION}"
 export PROJECT_NUM=$(gcloud projects describe "$PROJECT_ID" --format="value(projectNumber)")
 ```
 
@@ -162,7 +167,8 @@ JUDGE_BASE_URL=$(gcloud run services describe judge-agent \
 
 cat <<EOF > data_analytics_agent/.env
 GOOGLE_CLOUD_PROJECT=${PROJECT_ID}
-GOOGLE_CLOUD_LOCATION=${REGION}
+GOOGLE_CLOUD_LOCATION=${GOOGLE_CLOUD_LOCATION}
+MODEL_NAME=${MODEL_NAME}
 CATALOG_MCP_URL=${CATALOG_BASE_URL}/sse
 JUDGE_AGENT_URL=${JUDGE_BASE_URL}
 # 1. ADK's native span content capture (populates gcp.vertex.agent.llm_request & llm_response)
