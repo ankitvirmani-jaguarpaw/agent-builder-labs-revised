@@ -36,7 +36,7 @@ export JUDGE_AGENT_URL="$(gcloud run services describe judge-agent \
 
 gcloud run services update judge-agent \
   --region us-central1 \
-  --set-env-vars A2A_PUBLIC_URL="${JUDGE_AGENT_URL}"
+  --update-env-vars A2A_PUBLIC_URL="${JUDGE_AGENT_URL}",GOOGLE_CLOUD_LOCATION="us",MODEL_NAME="gemini-3.8-flash"
 ```
 
 Verify the Judge Agent publishes its A2A agent card:
