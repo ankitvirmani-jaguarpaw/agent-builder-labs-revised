@@ -1,0 +1,7 @@
+name: fsi-agent-gateway-egress-iap
+service: iap.googleapis.com
+failOpen: false
+timeout: 1s
+metadata:
+  iamEnforcementMode: "ENFORCE"
+  iapPolicyVersion: "V2"
