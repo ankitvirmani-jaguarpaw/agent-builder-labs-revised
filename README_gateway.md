@@ -167,16 +167,18 @@ fi
 cat << 'EOF' > cfg/fsi-agent-gateway-egress-iap.yaml
 name: fsi-agent-gateway-egress-iap
 service: iap.googleapis.com
-failOpen: true
+failOpen: false
 timeout: 1s
 metadata:
-  iamEnforcementMode: "DRY_RUN"
+  iamEnforcementMode: "ENFORCE"
   iapPolicyVersion: "V2"
 EOF
 
 gcloud beta service-extensions authz-extensions import fsi-agent-gateway-egress-iap \
   --source="cfg/fsi-agent-gateway-egress-iap.yaml" \
-  --location="${REGION}" --project="${PROJECT_ID}" --quiet
+  --location="us-central1" \
+  --project="$(gcloud config get-value project)" \
+  --quiet
 
 # 5. Attach the Authz Policy to the Gateway
 AUTHZ_URL="https://networksecurity.googleapis.com/v1alpha1/projects/${PROJECT_ID}/locations/${REGION}/authzPolicies"
