@@ -535,3 +535,5 @@ EOF
 chmod +x query_deployed_agent.sh
 ./query_deployed_agent.sh
 ```
+Note: You might see this in the cloud logs:  google.genai.errors.ClientError: 403 Forbidden. {'message': 'Egress request is not authorized.', 'status': 'Forbidden'}"
+timestamp: "2026-10-19T05:25:13.443403Z". This is expected! We will fix this now!
