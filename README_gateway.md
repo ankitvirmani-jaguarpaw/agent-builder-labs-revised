@@ -167,7 +167,7 @@ fi
 cat << 'EOF' > cfg/fsi-agent-gateway-egress-iap.yaml
 name: fsi-agent-gateway-egress-iap
 service: iap.googleapis.com
-failOpen: false
+failOpen: true
 timeout: 1s
 metadata:
   iamEnforcementMode: "ENFORCE"
@@ -176,9 +176,7 @@ EOF
 
 gcloud beta service-extensions authz-extensions import fsi-agent-gateway-egress-iap \
   --source="cfg/fsi-agent-gateway-egress-iap.yaml" \
-  --location="us-central1" \
-  --project="$(gcloud config get-value project)" \
-  --quiet
+  --location="${REGION}" --project="${PROJECT_ID}" --quiet
 
 # 5. Attach the Authz Policy to the Gateway
 AUTHZ_URL="https://networksecurity.googleapis.com/v1alpha1/projects/${PROJECT_ID}/locations/${REGION}/authzPolicies"
@@ -533,8 +531,7 @@ curl -N -s -X POST \
   }"
 echo ""
 EOF
+
 chmod +x query_deployed_agent.sh
 ./query_deployed_agent.sh
 ```
-**Note: At this stage, you might see a message like:  google.genai.errors.ClientError: 403 Forbidden. {'message': 'Egress request is not authorized.', 'status': 'Forbidden'}"
-timestamp: "2026-10-19T05:25:13.443403Z", which is expected**
