@@ -534,6 +534,9 @@ curl -N -s -X POST \
 echo ""
 EOF
 
+**Note: At this stage, you might see a message like:  google.genai.errors.ClientError: 403 Forbidden. {'message': 'Egress request is not authorized.', 'status': 'Forbidden'}"
+timestamp: "2026-10-19T05:25:13.443403Z", which is expected**
+
 chmod +x query_deployed_agent.sh
 ./query_deployed_agent.sh
 ```
