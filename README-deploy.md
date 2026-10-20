@@ -201,7 +201,7 @@ gcloud projects add-iam-policy-binding "$PROJECT_ID" \
 ```
 
 ### 4. Deploy
-
+pip install --upgrade "google-cloud-agentplatform>=2.2"
 ```bash
 adk deploy agent_engine \
  --project="${GOOGLE_CLOUD_PROJECT}" \
