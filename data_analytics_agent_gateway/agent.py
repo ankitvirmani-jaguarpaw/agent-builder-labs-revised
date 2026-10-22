@@ -43,7 +43,7 @@ if not PROJECT_ID:
   _, auth_project = google.auth.default()
   PROJECT_ID = auth_project
 
-LOCATION = os.getenv("GOOGLE_CLOUD_LOCATION", "global")
+LOCATION = "us"
 MODEL_NAME = os.getenv("MODEL_NAME", "gemini-3.8-flash")
 os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "true"
 os.environ["GOOGLE_CLOUD_PROJECT"] = PROJECT_ID
