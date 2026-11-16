@@ -1,0 +1,8 @@
+google-adk
+google-genai
+google-auth
+google-cloud-bigquery
+python-dotenv
+opentelemetry-instrumentation-google-genai
+opentelemetry-instrumentation-httpx
+opentelemetry-instrumentation-grpc
